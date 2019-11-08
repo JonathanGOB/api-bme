@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="sensor-schema" uuid="7dfccb30-4c79-4fd5-9a76-ccd4ef936214">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+      <secret-storage>forget</secret-storage>
+    </data-source>
+  </component>
+</project>
