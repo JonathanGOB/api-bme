@@ -1,6 +1,15 @@
 import paho.mqtt.client as mqtt
-import time
+import json
+import pyodbc
 
+server = 'tcp:coreiot.database.windows.net'
+database = 'esp-data'
+username = 'system'
+password = 'g9vbqvZjBwU^!9C'
+cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+cursor = cnxn.cursor()
+
+buffer = {}
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
@@ -14,7 +23,25 @@ def on_connect(client, userdata, flags, rc):
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     #put in database
-    print(msg.topic+" "+str(msg.payload))
+    print(msg.topic + " " + msg.payload.decode('utf-8'))
+    topic = str(msg.topic.split("/"))
+    message = json.load(str(msg.payload.decode('utf-8')))
+    key = message.keys()[0]
+    buffer[key] = message[key]
+    buffer ["device"] = topic[1]
+    if len(buffer) == 4 and key == "humidity":
+        insert = ""
+        values = ""
+        for x in buffer:
+            insert += x + ","
+            values += buffer[x] + ","
+
+        insert = insert[:-1]
+        values = values[:-1]
+
+        statement = "INSERT INTO "  + insert + "VALUES " + values
+        print("statement: " + statement)
+
 
 client = mqtt.Client()
 client.on_connect = on_connect
