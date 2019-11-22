@@ -1,8 +1,9 @@
 from flask import Flask
-from flask import request
+from flask_restful import Resource, Api
 import pyodbc
 
 app = Flask(__name__)
+api = Api(app)
 
 server = 'tcp:coreiot.database.windows.net'
 database = 'esp-data'
@@ -12,15 +13,14 @@ cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';
 cursor = cnxn.cursor()
 
 
-@app.route('/api/v1/sensors',  methods = ['GET'])
-def sensor():
-    if request.method == 'GET':
-        sensor = request.args.get('sensorname')
-        return sensor
 
-@app.route('/')
-def hello():
-    return 'hello world'
+class AllCapturedDataDevices(Rescource):
+    def get(self):
+        return {'hello': 'world'}
+
+
+api.add_resource(AllCapturedDataDevices, '/AllCapturedData')
+
 
 if __name__ == '__main__':
     app.run()
