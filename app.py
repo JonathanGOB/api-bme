@@ -5,18 +5,24 @@ import pyodbc
 app = Flask(__name__)
 api = Api(app)
 
-server = 'tcp:coreiot.database.windows.net'
-database = 'esp-data'
-username = 'system'
-password = 'g9vbqvZjBwU^!9C'
+server = 'tcp:dc6-iotdb-server.database.windows.net,1433'
+database = 'device-website'
+username = 'dc6admin'
+password = 'Sy4c0Fqz'
 cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 
 
 
-class AllCapturedDataDevices(Rescource):
+class AllCapturedDataDevices(Resource):
     def get(self):
-        return {'hello': 'world'}
+        returndata = []
+        cursor.execute(
+            "SELECT * FROM CapturedData")
+        if(cursor.fetchall):
+            for row in cursor.fetchall():
+                returndata.append(row)
+            return {'message': 'Succes', 'Data' : returndata}
 
 
 api.add_resource(AllCapturedDataDevices, '/AllCapturedData')
