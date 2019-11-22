@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
+from flask_restful import reqparse
+import json
 import pyodbc
 
 app = Flask(__name__)
@@ -24,6 +26,18 @@ class AllCapturedDataDevices(Resource):
                 returndata.append(row)
             return {'message': 'Succes', 'Data' : returndata}
 
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('device_id', required = True)
+        parser.add_argument('pressure', required=True)
+        parser.add_argument('temperature', required=True)
+        parser.add_argument('humidity', required=True)
+        parser.add_argument('timestamp', required=True)
+
+        args = parser.parse_args()
+        return {'Message' : 'Succes', 'Data' : args}
+        cursor.execute("insert into CaptureData values (?)", (json.dump(args),))
+        cursor.commit
 
 api.add_resource(AllCapturedDataDevices, '/AllCapturedData')
 
