@@ -1,45 +1,97 @@
-from flask import Flask
-from flask_restful import Resource, Api
-from flask_restful import reqparse
-import json
+from flask import Flask, request, jsonify, abort, make_response, url_for
+from flask_restful import Api, Resource, reqparse, fields, marshal
+from datetime import datetime
 import pyodbc
+import json
+import config
 
 app = Flask(__name__)
 api = Api(app)
 
-server = 'tcp:dc6-iotdb-server.database.windows.net,1433'
-database = 'device-website'
-username = 'dc6admin'
-password = 'Sy4c0Fqz'
-cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
+class AzureSQLDatabase(object):
+    connection = None
+    cursor = None
 
+    def __init__(self):
+        self.connection = pyodbc.connect(config.CONN_STRING)
+        self.cursor = self.connection.cursor()
 
+    def query(self, query, params):
+        return self.cursor.execute(query, params)
 
-class AllCapturedDataDevices(Resource):
+    def commit(self):
+        return self.connection.commit()
+
+    def __del__(self):
+        self.connection.close()
+
+deviceData_fields = {
+    'device_id': fields.String,
+    'pressure': fields.Integer,
+    'temperature': fields.String,
+    'humidity': fields.String,
+    'timestamp': fields.DateTime,
+    'uri': fields.Url('CapturedData')
+}
+
+def myconverter(o):
+    return o.__str__()
+
+class CapturedDataDevices(Resource):
+    def __init__(self):
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument('device_id', type=str, required=False)
+        self.reqparse.add_argument('pressure', type=str, required=False)
+        self.reqparse.add_argument('temperature', type=str, required=False)
+        self.reqparse.add_argument('timestamp', type=lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S'), required=False)
+        self.reqparse.add_argument('humidity', type=str, required=False)
+        super(CapturedDataDevices, self).__init__()
+
     def get(self):
-        returndata = []
-        cursor.execute(
-            "SELECT * FROM CapturedData")
-        if(cursor.fetchall):
+        try:
+            conn = AzureSQLDatabase()
+            args = self.reqparse.parse_args()
+
+            cursor = conn.query(
+                "SELECT * FROM CaptureData WHERE device_id = ?", args['device_id'])
+            columns = [column[0] for column in cursor.description]
+            deviceData = []
             for row in cursor.fetchall():
-                returndata.append(row)
-            return {'message': 'Succes', 'Data' : returndata}
+                deviceData.append(dict(zip(columns, row)))
+
+            return {
+                'message': 'Succes', 'Data' : marshal(deviceData, deviceData_fields)
+            }
+
+
+        except Exception as e:
+            return {'error': str(e)}
 
     def post(self):
-        parser = reqparse.RequestParser()
-        parser.add_argument('device_id', required = True)
-        parser.add_argument('pressure', required=True)
-        parser.add_argument('temperature', required=True)
-        parser.add_argument('humidity', required=True)
-        parser.add_argument('timestamp', required=True)
+        try:
+            args = self.reqparse.parse_args()
+            #data = request.get_json(force=True)
 
-        args = parser.parse_args()
-        return {'Message' : 'Succes', 'Data' : args}
-        cursor.execute("insert into CaptureData values (?)", (json.dump(args),))
-        cursor.commit
+            captureData = {
+                'device_id': args['device_id'],
+                'pressure': args['pressure'],
+                'temperature': args['temperature'],
+                'timestamp': myconverter(args['timestamp']),
+                'humidity': args['humidity']
+            }
 
-api.add_resource(AllCapturedDataDevices, '/AllCapturedData')
+            conn = AzureSQLDatabase()
+            conn.query("insert into CaptureData (device_id, pressure, temperature, timestamp, humidity) values (?, ?, ?, ?, ?)", [captureData['device_id'], captureData['pressure'], captureData['temperature'], captureData['timestamp'], captureData['humidity']])
+            conn.commit
+
+            return {
+                'Message' : 'Succes', 'captureData': captureData
+            }, 201
+
+        except Exception as e:
+            return {'error': str(e)}
+
+api.add_resource(CapturedDataDevices, '/Api/V1/CapturedData', endpoint='CapturedData')
 
 
 if __name__ == '__main__':
