@@ -82,7 +82,7 @@ class CapturedDataDevices(Resource):
 
             conn = AzureSQLDatabase()
             conn.query("insert into CaptureData (device_id, pressure, temperature, timestamp, humidity) values (?, ?, ?, ?, ?)", [captureData['device_id'], captureData['pressure'], captureData['temperature'], captureData['timestamp'], captureData['humidity']])
-            conn.commit
+            conn.commit()
 
             return {
                 'Message' : 'Succes', 'captureData': captureData
