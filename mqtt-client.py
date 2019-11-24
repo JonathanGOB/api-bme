@@ -29,15 +29,16 @@ def on_message(client, userdata, msg):
     messages.append(msg)
 
 def computing():
-    print(schema)
     key = None
     #Format the data to put in the schema
     if messages:
         msg = messages.pop()
         topic = msg.topic.split("/")
         schema["device_id"] = topic[1]
-        message = json.load(msg.payload.decode('utf-8'))
-        key = message.keys()[0]
+        message = msg.payload.decode('utf-8')
+        message = json.loads(message)
+        keys = message.keys()
+        key = list(keys)[0]
         schema[key] = message[key]
 
         #Sends data if complete and resets the schema if not. Removes the start incompletion data
@@ -48,7 +49,12 @@ def computing():
             data = json.dumps(schema)
             dataBytes = data.encode('utf-8')
             request.add_header('Content-length', len(dataBytes))
-            response = urllib.request.urlopen(request, dataBytes)
+            try:
+                response = urllib.request.urlopen(request, dataBytes)
+
+            except Exception as e:
+                print(e)
+
             print(response)
             resetSchema()
 
@@ -60,7 +66,6 @@ def computingFunctionThread():
     print("starting thread")
     while True:
         computing()
-        time.sleep(0.25)
 
 
 
