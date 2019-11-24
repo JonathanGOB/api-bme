@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import json
 import threading
 import urllib.request
+import time
 
 schema = {
     "device_id": None,
@@ -29,28 +30,39 @@ def on_message(client, userdata, msg):
 
 def computing():
     print(schema)
+    key = None
     #Format the data to put in the schema
-    msg = messages.pop()
-    topic = msg.topic.split("/")
-    schema["device_id"] = topic[1]
-    message = json.load(str(msg.payload.decode('utf-8')))
-    key = message.keys()[0]
-    schema[key] = message[key]
+    if messages:
+        msg = messages.pop()
+        topic = msg.topic.split("/")
+        schema["device_id"] = topic[1]
+        message = json.load(msg.payload.decode('utf-8'))
+        key = message.keys()[0]
+        schema[key] = message[key]
 
-    #Sends data if complete and resets the schema if not. Removes the start incompletion data
-    if message[key] == "humidity" and not all(schema.values()):
-        print("POST to api")
-        request = urllib.request.Request("http://127.0.0.1:5000/Api/V1/CapturedData")
-        request.add_header('Content-Type', 'x-www-form-urlencoded; charset=utf-8')
-        data = json.dumps(schema)
-        dataBytes = data.encode('utf-8')
-        request.add_header('Content-length', len(dataBytes))
-        response = urllib.request.urlopen(request, dataBytes)
-        print(response)
-        resetSchema()
+        #Sends data if complete and resets the schema if not. Removes the start incompletion data
+        if key == "humidity" and not all(schema.values()):
+            print("POST to api")
+            request = urllib.request.Request("http://127.0.0.1:5000/Api/V1/CapturedData")
+            request.add_header('Content-Type', 'x-www-form-urlencoded; charset=utf-8')
+            data = json.dumps(schema)
+            dataBytes = data.encode('utf-8')
+            request.add_header('Content-length', len(dataBytes))
+            response = urllib.request.urlopen(request, dataBytes)
+            print(response)
+            resetSchema()
 
-    elif messages[key] == "humidity" and all(schema.values()):
-        resetSchema()
+        elif key == "humidity" and all(schema.values()):
+            resetSchema()
+
+#add components if needed for the thread
+def computingFunctionThread():
+    print("starting thread")
+    while True:
+        computing()
+        time.sleep(0.25)
+
+
 
 #resets the schema
 def resetSchema():
@@ -73,9 +85,10 @@ client.connect("127.0.0.1", 1883, keepalive=60)
 # Other loop*() functions are available that give a threaded interface and a
 # manual interface.
 def main():
-    threadmqtt = threading.Thread(target=client.loop_forever())
+    threadmqtt = threading.Thread(target=client.loop_forever)
+    threadcomputing = threading.Thread(target=computingFunctionThread)
     threadmqtt.start()
-
+    threadcomputing.start()
 
 if __name__ == '__main__':
     main()
