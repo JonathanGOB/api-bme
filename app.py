@@ -37,13 +37,14 @@ deviceData_fields = {
 def myconverter(o):
     return o.__str__()
 
+
 class CapturedDataDevices(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
         self.reqparse.add_argument('device_id', type=str, required=False)
         self.reqparse.add_argument('pressure', type=str, required=False)
         self.reqparse.add_argument('temperature', type=str, required=False)
-        self.reqparse.add_argument('timestamp', type=lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S'), required=False)
+        self.reqparse.add_argument('timestamp', type=lambda x: datetime.strptime(x, '%a, %d %b %Y %H:%M:%S -0000'), required=False)
         self.reqparse.add_argument('humidity', type=str, required=False)
         super(CapturedDataDevices, self).__init__()
 
@@ -58,24 +59,20 @@ class CapturedDataDevices(Resource):
                         self.keys.append(key)
                 adder = " and {0} = {1} "
                 beginadder = "{0} = {1}"
-                if len(self.keys) == 1:
-                    query = "SELECT * FROM CaptureData WHERE {0} = ?".format(self.keys[0])
-                    cursor = conn.query(
-                        query, args[self.keys[0]])
-                if len(self.keys) > 1:
-                    start = False
-                    params = []
-                    query = "SELECT * FROM CaptureData WHERE "
-                    for i in self.keys:
-                        if start == False:
-                            cpbeginadder = beginadder
-                            cpbeginadder = cpbeginadder.format(i, args[i])
-                            query += cpbeginadder
-                            start = True
-                        elif start == True:
-                            cpadder = adder
-                            cpadder = cpadder.format(i, args[i])
-                            query += cpadder
+                start = False
+                params = []
+                query = "SELECT * FROM CaptureData WHERE "
+                for i in self.keys:
+                    print(i)
+                    if start == False:
+                        cpbeginadder = beginadder
+                        cpbeginadder = cpbeginadder.format(i, "'%s'" % args[i] if i == "timestamp" else args[i])
+                        query += cpbeginadder
+                        start = True
+                    elif start == True:
+                        cpadder = adder
+                        cpadder = cpadder.format(i, "'%s'" % args[i] if i == "timestamp" else args[i])
+                        query += cpadder
                     print(query)
                     cursor = conn.query(
                         query, params)
