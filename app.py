@@ -51,9 +51,20 @@ class CapturedDataDevices(Resource):
         try:
             conn = AzureSQLDatabase()
             args = self.reqparse.parse_args()
-
-            cursor = conn.query(
-                "SELECT * FROM CaptureData WHERE device_id = ?", args['device_id'])
+            if any(v is not None for v in args.values()):
+                self.key = None
+                for (key, value) in args.items():
+                    if value:
+                        print(key)
+                        self.key = key
+                print(args, self.key, args[self.key])
+                query = "SELECT * FROM CaptureData WHERE {0} = ?".format(self.key)
+                cursor = conn.query(
+                    query, args[self.key])
+            elif all(v is None for v in args.values()):
+                params = []
+                cursor = conn.query(
+                    "SELECT * FROM CaptureData", params)
             columns = [column[0] for column in cursor.description]
             deviceData = []
             for row in cursor.fetchall():

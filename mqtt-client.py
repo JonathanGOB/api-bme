@@ -30,6 +30,7 @@ def on_message(client, userdata, msg):
 
 def computing():
     key = None
+    print(schema)
     #Format the data to put in the schema
     if messages:
         msg = messages.pop()
