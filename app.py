@@ -52,13 +52,35 @@ class CapturedDataDevices(Resource):
             conn = AzureSQLDatabase()
             args = self.reqparse.parse_args()
             if any(v is not None for v in args.values()):
-                self.key = None
+                self.keys = []
                 for (key, value) in args.items():
                     if value:
-                        self.key = key
-                query = "SELECT * FROM CaptureData WHERE {0} = ?".format(self.key)
-                cursor = conn.query(
-                    query, args[self.key])
+                        self.keys.append(key)
+                adder = " and {0} = {1} "
+                beginadder = "{0} = {1}"
+                if len(self.keys) == 1:
+                    query = "SELECT * FROM CaptureData WHERE {0} = ?".format(self.keys[0])
+                    cursor = conn.query(
+                        query, args[self.keys[0]])
+                if len(self.keys) > 1:
+                    start = False
+                    params = []
+                    query = "SELECT * FROM CaptureData WHERE "
+                    for i in self.keys:
+                        if start == False:
+                            cpbeginadder = beginadder
+                            cpbeginadder = cpbeginadder.format(i, args[i])
+                            query += cpbeginadder
+                            start = True
+                        elif start == True:
+                            cpadder = adder
+                            cpadder = cpadder.format(i, args[i])
+                            query += cpadder
+                    print(query)
+                    cursor = conn.query(
+                        query, params)
+
+
             elif all(v is None for v in args.values()):
                 params = []
                 cursor = conn.query(
