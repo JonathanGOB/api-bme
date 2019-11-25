@@ -26,6 +26,7 @@ class AzureSQLDatabase(object):
         self.connection.close()
 
 deviceData_fields = {
+    'id_num': fields.Integer,
     'device_id': fields.String,
     'pressure': fields.String,
     'temperature': fields.String,
@@ -41,6 +42,7 @@ def myconverter(o):
 class CapturedDataDevices(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument('id_num', type=int, required=False)
         self.reqparse.add_argument('device_id', type=str, required=False)
         self.reqparse.add_argument('pressure', type=str, required=False)
         self.reqparse.add_argument('temperature', type=str, required=False)
