@@ -55,9 +55,7 @@ class CapturedDataDevices(Resource):
                 self.key = None
                 for (key, value) in args.items():
                     if value:
-                        print(key)
                         self.key = key
-                print(args, self.key, args[self.key])
                 query = "SELECT * FROM CaptureData WHERE {0} = ?".format(self.key)
                 cursor = conn.query(
                     query, args[self.key])
