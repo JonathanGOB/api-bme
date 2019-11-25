@@ -27,7 +27,7 @@ class AzureSQLDatabase(object):
 
 deviceData_fields = {
     'device_id': fields.String,
-    'pressure': fields.Integer,
+    'pressure': fields.String,
     'temperature': fields.String,
     'humidity': fields.String,
     'timestamp': fields.DateTime,
