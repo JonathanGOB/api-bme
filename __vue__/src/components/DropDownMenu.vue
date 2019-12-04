@@ -11,7 +11,10 @@
         name: "DropDownMenu",
         data(){
             return{
-                options: [],
+                options: [
+                    {value: null, text: 'select sensor'},
+                    {value: 'all', text: 'all'}
+                ],
                 selected: null,
             }
         },
@@ -20,7 +23,7 @@
                 axios.get(`http://127.0.0.1:5000/Api/V1/Devices`)
                     .then(response => {
                         // JSON responses are automatically parsed.
-                        response.data.Data.forEach(deviceName => this.options.push(deviceName['device_id']));
+                        response.data.Data.forEach(deviceName => this.options.push({value : deviceName['device_id'], text: deviceName['device_id']}));
                     })
                     .catch(e => {
                         this.errors.push(e)
