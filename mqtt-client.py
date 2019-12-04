@@ -29,7 +29,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     #appends the data to the messages
     messages.append(msg)
-    timestamps.append(datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S'))
+    timestamps.append(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
 def computing():
     #print(schema)

@@ -22,12 +22,12 @@ class CapturedDataDevices(Resource):
         self.reqparse.add_argument('device_id', type=str, required=False)
         self.reqparse.add_argument('pressure', type=str, required=False)
         self.reqparse.add_argument('temperature', type=str, required=False)
-        self.reqparse.add_argument('timestamp', type=lambda x: datetime.strptime(x, '%a, %d %b %Y %H:%M:%S -0000'), required=False)
+        self.reqparse.add_argument('timestamp', type=lambda x: datetime.strptime(x, '%Y-%m-%d %H:%M:%S'), required=False)
         self.reqparse.add_argument('humidity', type=str, required=False)
         super(CapturedDataDevices, self).__init__()
 
     def get(self):
-        #try:
+        try:
             conn = AzureSQLDatabase.AzureSQLDatabase()
             args = self.reqparse.parse_args()
             if any(v is not None for v in args.values()):
@@ -70,11 +70,11 @@ class CapturedDataDevices(Resource):
             }
 
 
-        #except Exception as e:
-        #   return {'error': str(e)}
+        except Exception as e:
+           return {'error': str(e)}
 
     def post(self):
-        try:
+        #try:
             args = self.reqparse.parse_args()
             #data = request.get_json(force=True)
 
@@ -86,7 +86,7 @@ class CapturedDataDevices(Resource):
                 'humidity': args['humidity']
             }
 
-            conn = AzureSQLDatabase()
+            conn = AzureSQLDatabase.AzureSQLDatabase()
             conn.query("insert into CaptureData (device_id, pressure, temperature, timestamp, humidity) values (?, ?, ?, ?, ?)", [captureData['device_id'], captureData['pressure'], captureData['temperature'], captureData['timestamp'], captureData['humidity']])
             conn.commit()
 
@@ -94,5 +94,5 @@ class CapturedDataDevices(Resource):
                 'Message' : 'Succes', 'captureData': captureData
             }, 201
 
-        except Exception as e:
-            return {'error': str(e)}
+        #except Exception as e:
+        #   return {'error': str(e)}
