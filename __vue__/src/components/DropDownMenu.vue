@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-form-select v-model="selected" :options="options" size="sm" class="mt-3"></b-form-select>
+        <b-form-select @change="sendSelected(selected)" v-model="selected" :options="options" size="sm" class="mt-3"></b-form-select>
         <div class="mt-3">u have selected: <strong>{{ selected }}</strong></div>
     </div>
 </template>
@@ -19,6 +19,10 @@
             }
         },
         methods:{
+            sendSelected: function(selected){
+                this.$emit('selected', selected)
+            },
+            
             getOptions: function(){
                 axios.get(`http://127.0.0.1:5000/Api/V1/Devices`)
                     .then(response => {
