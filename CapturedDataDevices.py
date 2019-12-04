@@ -74,7 +74,7 @@ class CapturedDataDevices(Resource):
            return {'error': str(e)}
 
     def post(self):
-        #try:
+        try:
             args = self.reqparse.parse_args()
             #data = request.get_json(force=True)
 
@@ -94,5 +94,5 @@ class CapturedDataDevices(Resource):
                 'Message' : 'Succes', 'captureData': captureData
             }, 201
 
-        #except Exception as e:
-        #   return {'error': str(e)}
+        except Exception as e:
+           return {'error': str(e)}
