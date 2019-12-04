@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <DropDownMenu msg="Welcome to Your Vue.js App"/>
+    <DropDownMenu/>
   </div>
 </template>
 
 <script>
 import DropDownMenu from './components/DropDownMenu.vue'
+
 
 export default {
   name: 'app',
