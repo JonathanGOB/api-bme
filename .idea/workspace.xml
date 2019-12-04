@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c611ef36-5bb0-496d-bd23-c29621ac4ef9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/AzureSQLDatabase.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CapturedDataDevices.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Devices.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/dist/css/app.e2713bb0.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/dist/img/logo.82b9c7a5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/dist/js/app.1d63949c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/dist/js/app.1d63949c.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/DropDownMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/DropDownMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/dist/js/app.3632cf1e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/dist/js/app.3632cf1e.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/dist/js/chunk-vendors.78d5921b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/dist/js/chunk-vendors.78d5921b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/components/DropDownMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/DropDownMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,29 +184,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="134" key="#app/0.0.1920.1040@0.0.1920.1040" timestamp="1575484465677" />
-    <state width="1362" height="265" key="GridCell.Tab.0.bottom" timestamp="1575485814114">
+    <state width="1899" height="280" key="GridCell.Tab.0.bottom" timestamp="1575489175944">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1362" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575485814114" />
-    <state width="1362" height="265" key="GridCell.Tab.0.center" timestamp="1575485814114">
+    <state width="1899" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575489175944" />
+    <state width="1899" height="280" key="GridCell.Tab.0.center" timestamp="1575489175944">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1362" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575485814114" />
-    <state width="1362" height="265" key="GridCell.Tab.0.left" timestamp="1575485814114">
+    <state width="1899" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575489175944" />
+    <state width="1899" height="280" key="GridCell.Tab.0.left" timestamp="1575489175944">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1362" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575485814114" />
-    <state width="1362" height="265" key="GridCell.Tab.0.right" timestamp="1575485814114">
+    <state width="1899" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575489175944" />
+    <state width="1899" height="280" key="GridCell.Tab.0.right" timestamp="1575489175944">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1362" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575485814114" />
+    <state width="1899" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575489175944" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1575484472079">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575484472079" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1575480127142">
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1575488186563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575480127142" />
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575488186563" />
   </component>
 </project>
