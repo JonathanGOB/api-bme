@@ -11,24 +11,25 @@
         name: "DropDownMenu",
         data(){
             return{
-                posts: [],
+                options: [],
                 selected: null,
-                options:[
-                    {value: null, text: 'select'},
-                    {value: 'ESP1', text: 'ESP1'},
-                    {value: 'ESP2', text: 'ESP1'}
-                ]
             }
         },
-        created() {
-            axios.get(`http://jsonplaceholder.typicode.com/posts`)
-                .then(response => {
-                    // JSON responses are automatically parsed.
-                    this.posts = response.data
-                })
-                .catch(e => {
-                    this.errors.push(e)
-                })
+        methods:{
+            getOptions: function(){
+                axios.get(`http://127.0.0.1:5000/Api/V1/Devices`)
+                    .then(response => {
+                        // JSON responses are automatically parsed.
+                        response.data.Data.forEach(deviceName => this.options.push(deviceName['device_id']));
+                    })
+                    .catch(e => {
+                        this.errors.push(e)
+                    })
+            }
+        },
+
+        beforeMount(){
+            this.getOptions();
         }
     }
 </script>
