@@ -1,6 +1,6 @@
 #maps
 /node_modules
-/venv
+venv
 
 .DS_Store
 node_modules
