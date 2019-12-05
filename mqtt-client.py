@@ -4,6 +4,7 @@ import threading
 import urllib.request
 import time
 import datetime
+import AzureSQLDatabase
 
 schema = {
     "device_id": None,
@@ -15,6 +16,7 @@ schema = {
 
 timestamps = []
 messages = []
+conn = AzureSQLDatabase.AzureSQLDatabase()
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
@@ -49,7 +51,17 @@ def computing():
 
         #Sends data if complete and resets the schema if not. Removes the start incompletion data
         if key == "humidity" and all(v is not None for v in schema.values()):
+            #sql query
+            try:
+                conn.query("insert into CaptureData (device_id, pressure, temperature, timestamp, humidity) values (?, ?, ?, ?, ?)", schema['device_id'],
+                           schema['pressure'], schema['temperature'], schema['timestamp'], schema['humidity'])
+                conn.commit()
+
+            except Exception as e:
+                print(e)
+
             #print("POST to api")
+            """
             request = urllib.request.Request("http://127.0.0.1:5000/Api/V1/CapturedData")
             request.add_header('Content-Type', 'application/json; charset=utf-8')
             data = json.dumps(schema)
@@ -60,7 +72,8 @@ def computing():
 
             except Exception as e:
                 print(e)
-            print(schema)
+            print(schema)"""
+
             resetSchema(schema)
 
         elif key == "humidity" and any(v is not None for v in schema.values()):
