@@ -51,8 +51,8 @@ class CapturedDataDevices(Resource):
                         cpadder = adder
                         cpadder = cpadder.format(i, "'%s'" % args[i] if i == "timestamp" else args[i])
                         query += cpadder
-                    print(query)
-                    cursor = conn.query(
+                print(query)
+                cursor = conn.query(
                         query, params)
 
 

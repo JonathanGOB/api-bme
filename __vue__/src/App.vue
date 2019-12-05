@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <DropDownMenu/>
+    <DropDownMenu @selected="SendToMenu"/>
+    <GraphMenu ref="Graphman"/>
   </div>
 </template>
 
 <script>
 import DropDownMenu from './components/DropDownMenu.vue'
-
+import GraphMenu from "./components/GraphMenu";
 
 export default {
   name: 'app',
   components: {
+    GraphMenu,
     DropDownMenu
+  },
+  methods:{
+    SendToMenu:function (value) {
+        this.$refs.Graphman.getData(value);
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

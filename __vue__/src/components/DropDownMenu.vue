@@ -12,8 +12,7 @@
         data(){
             return{
                 options: [
-                    {value: null, text: 'select sensor'},
-                    {value: 'all', text: 'all'}
+                    {value: null, text: 'select sensor'}
                 ],
                 selected: null,
             }
