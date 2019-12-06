@@ -56,7 +56,6 @@ def computing():
                 conn.query("insert into CaptureData (device_id, pressure, temperature, timestamp, humidity) values (?, ?, ?, ?, ?)", schema['device_id'],
                            schema['pressure'], schema['temperature'], schema['timestamp'], schema['humidity'])
                 conn.commit()
-
             except Exception as e:
                 print(e)
 

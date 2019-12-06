@@ -1,15 +1,17 @@
 <template>
     <div>
-        <Graph/>
+        <Graph md="1"/>
+        <Settings sm = "2"></Settings>
     </div>
 </template>
 
 <script>
     import Graph from "./Graph";
     import axios from "axios";
+    import Settings from "./Settings";
     export default {
         name: "GraphMenu",
-        components: {Graph},
+        components: {Settings, Graph},
         data(){
             return {
                 sensor: []
