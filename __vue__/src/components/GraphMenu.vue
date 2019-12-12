@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Graph md="1"/>
-        <Settings sm = "2"></Settings>
+        <Graph md="1" ref="graph1"/>
+        <Settings sm = "2" @inputs="sendToGraph"></Settings>
     </div>
 </template>
 
@@ -19,6 +19,10 @@
         },
 
         methods:{
+            sendToGraph: function(value){
+                this.$refs.graph1.settings = value
+            },
+
             getData: function(device_id){
                 device_id = "'" + device_id + "'"
                 axios.get("http://127.0.0.1:5000/Api/V1/CapturedData?device_id=" + device_id)
@@ -31,7 +35,13 @@
                     .catch(e => {
                         this.errors.push(e)
                     })
+                this.sendData(this.sensor);
             },
+
+            sendData: function (data) {
+                this.$refs.graph1.data = data;
+                this.sensor = [];
+            }
         },
 
     }
