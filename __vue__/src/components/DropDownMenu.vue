@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-col sm="3">
+        <b-col>
         <b-form-select @change="sendSelected(selected)" v-model="selected" :options="options" size="sm" class="mt-3"></b-form-select>
         <div class="mt-3">u have selected: <strong>{{ selected }}</strong></div>
         </b-col>

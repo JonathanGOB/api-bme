@@ -1,5 +1,10 @@
 <template>
     <div>
+        <b-col style="margin-top: 25px">
+            <strong>
+                Settings
+            </strong>
+        </b-col>
         <b-container fluid>
             <b-row class="my-1" v-for="input in inputs" :key="input.key">
                 <b-col sm="3">

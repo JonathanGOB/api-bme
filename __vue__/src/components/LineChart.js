@@ -8,6 +8,12 @@ export default {
     mounted () {
         // this.chartData is created in the mixin.
         // If you want to pass options please create a local options object
-        this.renderChart(this.chartData, this.options)
+        try {
+            this.renderChart(this.chartData, this.options)
+        }
+        catch (e) {
+            // eslint-disable-next-line no-console
+            console.log("no data")
+        }
     }
 }

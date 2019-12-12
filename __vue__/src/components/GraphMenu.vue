@@ -1,7 +1,9 @@
 <template>
     <div>
-        <Graph md="1" ref="graph1"/>
-        <Settings sm = "2" @inputs="sendToGraph"></Settings>
+        <div class="row" >
+        <Graph class="col-sm" ref="graph1"/>
+        <Settings class="col-sm" @inputs="sendToGraph"></Settings>
+        </div>
     </div>
 </template>
 
