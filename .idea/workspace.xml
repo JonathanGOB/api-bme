@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c611ef36-5bb0-496d-bd23-c29621ac4ef9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/__vue__/src/components/Graph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Graph.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/LineChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/LineChart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

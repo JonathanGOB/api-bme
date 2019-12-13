@@ -32,12 +32,8 @@
                         }.bind(this), 1000);
                     }
                     if (value[0].value == false) {
-                        if (this.handleInterval) {
-                            clearInterval(this.handleInterval);
-                        }
-                        else{
-                            this.getData(this.deviceId);
-                        }
+                        clearInterval(this.handleInterval);
+                        this.getData(this.deviceId);
                     }
                 }
             },

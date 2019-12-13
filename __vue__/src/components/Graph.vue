@@ -21,13 +21,8 @@
                 localSettings: null
             }
         },
-        watch:{
-          'data': function () {
-              this.fillData();
-              // eslint-disable-next-line no-console
-              console.log("fill data")
-          }
-        },
+
+
         methods: {
             fillData (data) {
                 // eslint-disable-next-line no-console
@@ -38,6 +33,8 @@
                         this.localSettings.push(element.text)
                     }
                 });
+                // eslint-disable-next-line no-console
+                console.log("settings: ", this.localSettings);
                 this.datacollection = {
                     labels:[],
                     datasets: [
@@ -51,16 +48,14 @@
                             data: []
                         };
                         template.label = element;
-                        data.data.map((inner) => {
-                            template.data.push(inner.timestamp);
+                        data.map((inner) => {
+                            this.datacollection.labels.push(inner.timestamp);
                             template.data.push(inner[element]);
                         })
                         // eslint-disable-next-line no-console
-                        console.log("template: ", template);
+                        console.log("template:", template);
                         this.datacollection.datasets.push(template);
                     })
-
-                    this.datacollection.labels.push([data.data[0].timestamp, data.data[data.data.length].timestamp]);
                 }
             }
         }
