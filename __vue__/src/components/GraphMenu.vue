@@ -2,7 +2,7 @@
     <div>
         <div class="row" >
         <Graph style="margin-top: 25px" class="col-sm" ref="graph1"/>
-        <Settings  class="col-sm" @inputs="sendToGraph"></Settings>
+        <Settings  class="col-sm" @inputs="sendToGraph" @selected="getData"></Settings>
         </div>
     </div>
 </template>
@@ -11,6 +11,7 @@
     import Graph from "./Graph";
     import axios from "axios";
     import Settings from "./Settings";
+
     export default {
         name: "GraphMenu",
         components: {Settings, Graph},

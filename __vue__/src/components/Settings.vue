@@ -5,6 +5,7 @@
                 Settings
             </strong>
         </b-col>
+        <DropDownMenu @selected="sendToMenu" style="margin-bottom: 15px"></DropDownMenu>
         <b-container fluid>
             <b-row class="my-1" v-for="input in inputs" :key="input.key">
                 <b-col sm="3">
@@ -25,11 +26,13 @@
     import { Datetime } from 'vue-datetime';
     // You need a specific loader for CSS files
     import 'vue-datetime/dist/vue-datetime.css'
+    import DropDownMenu from "./DropDownMenu";
 
     export default {
         template: '...',
         components: {
-            datetime: Datetime
+            datetime: Datetime,
+            DropDownMenu
         },
         name: "Settings",
         data() {
@@ -50,6 +53,10 @@
                 this.$emit('inputs', this.inputs);
                 // eslint-disable-next-line no-console
                 console.log(this.inputs)
+            },
+
+            sendToMenu: function (value) {
+                this.$emit('selected', value)
             }
         }
     }

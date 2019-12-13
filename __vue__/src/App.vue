@@ -1,25 +1,22 @@
 <template>
   <div id="app">
-    <DropDownMenu @selected="SendToMenu"/>
+    <div class="d-flex flex-column-reverse align-items-center">
+      <h1 class="display-1"> Graph </h1>
+    </div>
+    <div class="row-2">
     <GraphMenu ref="Graphman"/>
+    </div>
   </div>
 </template>
 
 <script>
-import DropDownMenu from './components/DropDownMenu.vue'
 import GraphMenu from "./components/GraphMenu";
 
 export default {
   name: 'app',
   components: {
     GraphMenu,
-    DropDownMenu
   },
-  methods:{
-    SendToMenu:function (value) {
-        this.$refs.Graphman.getData(value);
-    }
-  }
 }
 </script>
 
