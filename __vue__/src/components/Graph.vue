@@ -25,6 +25,7 @@
 
         methods: {
             fillData (data) {
+                let start = false;
                 this.localSettings = [];
                 this.settings.map((element) => {
                     if(element.value && element.text != "live"){
@@ -49,9 +50,12 @@
                         };
                         template.label = element;
                         methodData.map((inner) => {
-                            this.datacollection.labels.push(inner.timestamp);
+                            if(!start){
+                                this.datacollection.labels.push(inner.timestamp);
+                            }
                             template.data.push(inner[element]);
                         })
+                        start = true;
                         this.datacollection.datasets.push(template);
                     })
                 }
