@@ -17,41 +17,51 @@
         data(){
             return{
                 settings:[],
-                data:[],
-                datacollection: null
+                datacollection: null,
+                localSettings: null
             }
         },
         watch:{
-          'data': function (val, oldVal) {
-              //update data
-              val
-              oldVal
+          'data': function () {
+              this.fillData();
               // eslint-disable-next-line no-console
-              console.log(this.data)
+              console.log("fill data")
           }
         },
-        mounted () {
-            this.fillData()
-        },
         methods: {
-            fillData () {
+            fillData (data) {
+                // eslint-disable-next-line no-console
+                console.log("data: ", data)
+                this.localSettings = [];
+                this.settings.map((element) => {
+                    if(element.value){
+                        this.localSettings.push(element.text)
+                    }
+                });
                 this.datacollection = {
-                    labels: [this.getRandomInt(), this.getRandomInt()],
+                    labels:[],
                     datasets: [
-                        {
-                            label: 'Data One',
-                            backgroundColor: '#f87979',
-                            data: [this.getRandomInt(), this.getRandomInt()]
-                        }, {
-                            label: 'Data One',
-                            backgroundColor: '#f87979',
-                            data: [this.getRandomInt(), this.getRandomInt()]
-                        }
                     ]
                 }
-            },
-            getRandomInt () {
-                return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+                if(this.localSettings.length != 0) {
+                    this.localSettings.map((element) => {
+                        let template = {
+                            label: "",
+                            backgroundColor: '#f87979',
+                            data: []
+                        };
+                        template.label = element;
+                        data.data.map((inner) => {
+                            template.data.push(inner.timestamp);
+                            template.data.push(inner[element]);
+                        })
+                        // eslint-disable-next-line no-console
+                        console.log("template: ", template);
+                        this.datacollection.datasets.push(template);
+                    })
+
+                    this.datacollection.labels.push([data.data[0].timestamp, data.data[data.data.length].timestamp]);
+                }
             }
         }
     }

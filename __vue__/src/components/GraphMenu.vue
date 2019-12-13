@@ -32,7 +32,12 @@
                         }.bind(this), 1000);
                     }
                     if (value[0].value == false) {
-                        clearInterval(this.handleInterval);
+                        if (this.handleInterval) {
+                            clearInterval(this.handleInterval);
+                        }
+                        else{
+                            this.getData(this.deviceId);
+                        }
                     }
                 }
             },
@@ -60,7 +65,7 @@
             },
 
             sendData: function (data) {
-                this.$refs.graph1.data = data;
+                this.$refs.graph1.fillData(data);
                 this.sensor = [];
             }
         },
