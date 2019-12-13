@@ -18,7 +18,8 @@
             return{
                 settings:[],
                 datacollection: null,
-                localSettings: null
+                localSettings: null,
+                localData: null
             }
         },
 
@@ -27,20 +28,49 @@
             fillData (data) {
                 let start = false;
                 this.localSettings = [];
+                this.localData = {
+                    "date from": null,
+                    "date to": null
+                };
                 this.settings.map((element) => {
                     if(element.value && element.text != "live" && element.text != "date from" && element.text != "date to"){
                         this.localSettings.push(element.text)
                     }
+                    else if(element.text == "date from" || element.text == "date to"){
+                        this.localData[element.text] = element.value;
+                    }
                 });
+
+                // eslint-disable-next-line no-console
+                console.log("date ", this.localData['date from'])
+
+                //sorts data
                 let methodData = data.sort(function(a,b){
                     return new Date(a.timestamp) - new Date(b.timestamp);
                 });
 
+                //removes datetime restriction data
+                let removers = [];
+                for(let i = 0; i < data.length - 1; i++){
+                    if((this.localData['date from'] != null && new Date(data[i].timestamp) < new Date(this.localData['date from']))
+                        || (this.localData['date to'] != null && new Date(data[i].timestamp) > new Date(this.localData['date to']))){
+                        removers.push(i);
+                    }
+                }
+
+                // eslint-disable-next-line no-console
+                console.log("removers", removers)
+                for (let i = removers.length -1; i >= 0; i--)
+                    methodData.splice(removers[i],1);
+
+                //empty datacollection to be refilled
                 this.datacollection = {
                     labels:[],
                     datasets: [
                     ]
                 }
+
+                //puts data in data collection and fills it with filled templates
                 if(this.localSettings.length != 0) {
                     this.localSettings.map((element) => {
                         let template = {
