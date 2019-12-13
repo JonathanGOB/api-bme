@@ -25,16 +25,16 @@
 
         methods: {
             fillData (data) {
-                // eslint-disable-next-line no-console
-                console.log("data: ", data)
                 this.localSettings = [];
                 this.settings.map((element) => {
-                    if(element.value){
+                    if(element.value && element.text != "live"){
                         this.localSettings.push(element.text)
                     }
                 });
-                // eslint-disable-next-line no-console
-                console.log("settings: ", this.localSettings);
+                let methodData = data.sort(function(a,b){
+                    return new Date(a.timestamp) - new Date(b.timestamp);
+                });
+
                 this.datacollection = {
                     labels:[],
                     datasets: [
@@ -48,12 +48,10 @@
                             data: []
                         };
                         template.label = element;
-                        data.map((inner) => {
+                        methodData.map((inner) => {
                             this.datacollection.labels.push(inner.timestamp);
                             template.data.push(inner[element]);
                         })
-                        // eslint-disable-next-line no-console
-                        console.log("template:", template);
                         this.datacollection.datasets.push(template);
                     })
                 }

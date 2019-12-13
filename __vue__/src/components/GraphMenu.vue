@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="row" >
-        <Graph class="col-sm" ref="graph1"/>
-        <Settings class="col-sm" @inputs="sendToGraph"></Settings>
+        <Graph style="margin-top: 25px" class="col-sm" ref="graph1"/>
+        <Settings  class="col-sm" @inputs="sendToGraph"></Settings>
         </div>
     </div>
 </template>
