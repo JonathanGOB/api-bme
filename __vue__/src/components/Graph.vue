@@ -21,6 +21,15 @@
                 datacollection: null
             }
         },
+        watch:{
+          'data': function (val, oldVal) {
+              //update data
+              val
+              oldVal
+              // eslint-disable-next-line no-console
+              console.log(this.data)
+          }
+        },
         mounted () {
             this.fillData()
         },

@@ -11,7 +11,7 @@
                     <label :for="`type-${input.type}`">{{input.text}} <code></code>:</label>
                 </b-col>
                 <b-col sm="9">
-                    <b-form-checkbox v-if="input.type == 'checkbox'" :value=input.text v-model="input.value"></b-form-checkbox>
+                    <b-form-checkbox v-if="input.type == 'checkbox'" v-model="input.value"></b-form-checkbox>
                     <b-form-input v-if="input.type != 'checkbox'" v-model="input.value" :id="`type-${input.type}`" :type="input.type"></b-form-input>
                 </b-col>
             </b-row>
@@ -42,6 +42,8 @@
         methods:{
             sendData: function () {
                 this.$emit('inputs', this.inputs);
+                // eslint-disable-next-line no-console
+                console.log(this.inputs)
             }
         }
     }
