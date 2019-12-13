@@ -28,7 +28,7 @@
                 let start = false;
                 this.localSettings = [];
                 this.settings.map((element) => {
-                    if(element.value && element.text != "live"){
+                    if(element.value && element.text != "live" && element.text != "date from" && element.text != "date to"){
                         this.localSettings.push(element.text)
                     }
                 });

@@ -12,7 +12,7 @@
                 </b-col>
                 <b-col sm="9">
                     <b-form-checkbox v-if="input.type == 'checkbox'" v-model="input.value"></b-form-checkbox>
-                    <b-form-input v-if="input.type != 'checkbox'" v-model="input.value" :id="`type-${input.type}`" :type="input.type"></b-form-input>
+                    <datetime v-if="input.type != 'checkbox'" type="datetime" v-model="input.value" format="yyyy-MM-dd HH:mm:ss"></datetime>
                 </b-col>
             </b-row>
             <b-button variant="outline-primary" v-on:click="sendData">change</b-button>
@@ -22,7 +22,15 @@
 </template>
 
 <script>
+    import { Datetime } from 'vue-datetime';
+    // You need a specific loader for CSS files
+    import 'vue-datetime/dist/vue-datetime.css'
+
     export default {
+        template: '...',
+        components: {
+            datetime: Datetime
+        },
         name: "Settings",
         data() {
             return {
@@ -33,8 +41,6 @@
                     {text: 'pressure', type: 'checkbox', key: '3', value:''},
                     {text: 'date from', type: 'date', key: '4', value:''},
                     {text: 'date to', type: 'date', key: '5', value:''},
-                    {text: 'time from', type: 'time', key: '6', value:''},
-                    {text: 'time to', type: 'time', key: '7', value:''},
                 ]
             }
         },
