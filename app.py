@@ -4,7 +4,7 @@ from flask_restful import Api, Resource, reqparse, fields, marshal
 from flask_cors import CORS
 import CapturedDataDevices
 import Devices
-import Graph
+#import Graph
 
 app = Flask(__name__, static_url_path='/__vue__/dist')
 
@@ -14,7 +14,7 @@ api = Api(app)
 
 api.add_resource(CapturedDataDevices.CapturedDataDevices, '/Api/V1/CapturedData', endpoint='CapturedData')
 api.add_resource(Devices.Devices, '/Api/V1/Devices', endpoint='Devices')
-api.add_resource(Graph.Graph, '/')
+#api.add_resource(Graph.Graph, '/')
 
 if __name__ == '__main__':
     app.run()

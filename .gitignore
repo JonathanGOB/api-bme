@@ -1,6 +1,7 @@
 #maps
 /node_modules
-venv
+/venv/**
+config.py
 
 .DS_Store
 node_modules

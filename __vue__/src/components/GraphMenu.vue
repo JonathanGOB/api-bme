@@ -27,11 +27,15 @@
             sendToGraph: function(value){
                 if(this.deviceId != "") {
                     this.$refs.graph1.settings = value;
-                    if (value[0].value == true) {
-                        this.handleInterval = setInterval(function () {
-                            this.getData(this.deviceId)
-                        }.bind(this), 1000);
+                    value.some(e => {
+                        if (value[0].value == true && e.text != "live" && e.value != "") {
+                            this.handleInterval = setInterval(function () {
+                                this.getData(this.deviceId)
+                            }.bind(this), 1000);
+                            return true;
+                        }
                     }
+                );
                     if (value[0].value == false) {
                         clearInterval(this.handleInterval);
                         this.getData(this.deviceId);

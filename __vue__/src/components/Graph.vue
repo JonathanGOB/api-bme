@@ -60,7 +60,7 @@
 
                 // eslint-disable-next-line no-console
                 console.log("removers", removers)
-                for (let i = removers.length -1; i >= 0; i--)
+                for (let i = removers.length; i >= 0; i--)
                     methodData.splice(removers[i],1);
 
                 //empty datacollection to be refilled
