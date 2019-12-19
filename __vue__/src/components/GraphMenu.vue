@@ -2,8 +2,10 @@
     <div>
         <div class="row" >
         <Graph style="margin-top: 25px" class="col-sm" ref="graph1"/>
-        <Settings  class="col-sm" @inputs="sendToGraph" @selected="getData"></Settings>
+        <Settings class="col-sm" @inputs="sendToGraph" @selected="getData"></Settings>
         </div>
+            <Gauge class = "col-sm" ref="guage">
+            </Gauge>
     </div>
 </template>
 
@@ -11,15 +13,17 @@
     import Graph from "./Graph";
     import axios from "axios";
     import Settings from "./Settings";
+    import Gauge from "./Gauge";
 
     export default {
         name: "GraphMenu",
-        components: {Settings, Graph},
+        components: {Settings, Graph, Gauge},
         data(){
             return {
                 sensor: [],
                 deviceId:"",
-                handleInterval:""
+                handleInterval:"",
+                live:""
             }
         },
 
@@ -28,15 +32,17 @@
                 if(this.deviceId != "") {
                     this.$refs.graph1.settings = value;
                     value.some(e => {
-                        if (value[0].value == true && e.text != "live" && e.value != "") {
+                        if (!this.live && value[0].value == true && e.text != "live" && e.value != "") {
                             this.handleInterval = setInterval(function () {
                                 this.getData(this.deviceId)
                             }.bind(this), 1000);
+                            this.live = true
                             return true;
                         }
                     }
                 );
                     if (value[0].value == false) {
+                        this.live = false;
                         clearInterval(this.handleInterval);
                         this.getData(this.deviceId);
                     }
@@ -67,6 +73,7 @@
 
             sendData: function (data) {
                 this.$refs.graph1.fillData(data);
+                this.$refs.guage.updateTable(data);
                 this.sensor = [];
             }
         },
