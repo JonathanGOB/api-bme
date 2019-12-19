@@ -41,9 +41,6 @@
                     }
                 });
 
-                // eslint-disable-next-line no-console
-                console.log("date ", this.localData['date from'])
-
                 //sorts data
                 let methodData = data.sort(function(a,b){
                     return new Date(a.timestamp) - new Date(b.timestamp);
@@ -57,9 +54,6 @@
                         removers.push(i);
                     }
                 }
-
-                // eslint-disable-next-line no-console
-                console.log("removers", removers)
                 for (let i = removers.length; i >= 0; i--)
                     methodData.splice(removers[i],1);
 

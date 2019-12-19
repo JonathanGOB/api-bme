@@ -51,8 +51,6 @@
         methods:{
             sendData: function () {
                 this.$emit('inputs', this.inputs);
-                // eslint-disable-next-line no-console
-                console.log(this.inputs)
             },
 
             sendToMenu: function (value) {

@@ -45,12 +45,8 @@
         methods:{
             updateTable: function (data) {
                 if (data != null) {
-                    // eslint-disable-next-line no-console
-                    console.log("data gauge: ", data);
                     this.items = data;
                     this.$refs.table.refresh();
-                    // eslint-disable-next-line no-console
-                    console.log("items gauge: ",  this.items);
                 }
             }
         }
