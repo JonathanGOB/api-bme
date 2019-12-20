@@ -45,7 +45,7 @@
         methods:{
             updateTable: function (data) {
                 if (data != null) {
-                    this.items = data;
+                    this.items = data.data.Data;
                     this.$refs.table.refresh();
                 }
             }

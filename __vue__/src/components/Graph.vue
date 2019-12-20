@@ -26,6 +26,16 @@
 
         methods: {
             fillData (data) {
+                var jonx;
+                data = new Promise((resolve) => {
+                    var return_data = [];
+                    for(var key in data.data.Data){
+                        return_data.push(data.data.Data[key]);
+                    }
+                    jonx = return_data;
+                    resolve(return_data);
+                })
+
                 let start = false;
                 this.localSettings = [];
                 this.localData = {
@@ -42,19 +52,19 @@
                 });
 
                 //sorts data
-                let methodData = data.sort(function(a,b){
+                let methodData = jonx.sort(function(a,b){
                     return new Date(a.timestamp) - new Date(b.timestamp);
                 });
 
                 //removes datetime restriction data
                 let removers = [];
-                for(let i = 0; i < data.length - 1; i++){
-                    if((this.localData['date from'] != null && new Date(data[i].timestamp) < new Date(this.localData['date from']))
-                        || (this.localData['date to'] != null && new Date(data[i].timestamp) > new Date(this.localData['date to']))){
+                for(let i = 0; i < jonx.length; i++){
+                    if((this.localData['date from'] != null && new Date(jonx[i].timestamp) < new Date(this.localData['date from']))
+                        || (this.localData['date to'] != null && new Date(jonx[i].timestamp) > new Date(this.localData['date to']))){
                         removers.push(i);
                     }
                 }
-                for (let i = removers.length; i >= 0; i--)
+                for (let i = removers.length; i > 0; i--)
                     methodData.splice(removers[i],1);
 
                 //empty datacollection to be refilled
