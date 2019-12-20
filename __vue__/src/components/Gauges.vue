@@ -1,5 +1,5 @@
 <template>
-    <div class="container" style="margin-bottom: 50px; margin-top: 50px">
+    <div class="container" style="margin-bottom: 100px; margin-top: 50px">
         <div class="row">
             <div class="col-sm">
                 <h1 class="text-center"><small>humidity</small></h1>

@@ -28,7 +28,7 @@
                     { key: 'id_num', label: 'id_num', sortable: true},
                     { key: 'device_id', label: 'device_id', sortable: true},
                     { key: 'pressure', label: 'pressure', sortable: true},
-                    { key: ' temperature', label: ' temperature', sortable: true},
+                    { key: 'temperature', label: ' temperature', sortable: true},
                     { key: 'humidity', label: 'humidity', sortable: true},
                     { key: 'timestamp', label: 'timestamp', sortable: true},
                     { key: 'uri', label: 'uri', sortable: false},
