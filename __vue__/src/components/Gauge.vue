@@ -45,7 +45,11 @@
         methods:{
             updateTable: function (data) {
                 if (data != null) {
-                    this.items = data.data.Data;
+                    //sorts data
+                    let methodData = data.data.Data.sort(function(a,b){
+                        return new Date(a.timestamp) - new Date(b.timestamp);
+                    });
+                    this.items = methodData;
                     this.$refs.table.refresh();
                 }
             }
