@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c611ef36-5bb0-496d-bd23-c29621ac4ef9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Gauge.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Gauge.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Graph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Graph.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__vue__/src/components/GraphMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/GraphMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Settings.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

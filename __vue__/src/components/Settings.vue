@@ -1,12 +1,16 @@
 <template>
     <div>
-        <b-col style="margin-top: 25px">
-            <strong>
-                Settings
-            </strong>
-        </b-col>
-        <DropDownMenu @selected="sendToMenu" style="margin-bottom: 15px"></DropDownMenu>
         <b-container fluid>
+            <b-row style="margin-top: 25px">
+                <b-col sm="3">
+                <strong>
+                    Settings
+                </strong>
+                </b-col>
+            </b-row>
+            <b-row>
+                <DropDownMenu @selected="sendToMenu" style="margin-bottom: 15px"></DropDownMenu>
+            </b-row>
             <b-row class="my-1" v-for="input in inputs" :key="input.key">
                 <b-col sm="3">
                     <label :for="`type-${input.type}`">{{input.text}} <code></code>:</label>
@@ -18,7 +22,7 @@
             </b-row>
             <b-button variant="outline-primary" v-on:click="sendData">change</b-button>
         </b-container>
-
+            <Gauges ref="gauges" style="margin-top: 240px"></Gauges>
     </div>
 </template>
 
@@ -27,12 +31,14 @@
     // You need a specific loader for CSS files
     import 'vue-datetime/dist/vue-datetime.css'
     import DropDownMenu from "./DropDownMenu";
+    import Gauges from "@/components/Gauges";
 
     export default {
         template: '...',
         components: {
             datetime: Datetime,
-            DropDownMenu
+            DropDownMenu,
+            Gauges
         },
         name: "Settings",
         data() {
@@ -55,6 +61,10 @@
 
             sendToMenu: function (value) {
                 this.$emit('selected', value)
+            },
+
+            sendGauges: function (data) {
+                this.$refs.gauges.changeValues(data);
             }
         }
     }

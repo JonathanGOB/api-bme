@@ -64,8 +64,10 @@
                         removers.push(i);
                     }
                 }
-                for (let i = removers.length; i > 0; i--)
-                    methodData.splice(removers[i],1);
+                
+                for (let i = removers.length - 1; i >= 0; i--) {
+                    methodData.splice(removers[i], 1);
+                }
 
                 //empty datacollection to be refilled
                 this.datacollection = {

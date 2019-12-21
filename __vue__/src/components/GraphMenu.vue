@@ -2,10 +2,7 @@
     <div>
         <div class="row" >
         <Graph style="margin-top: 25px" class="col-sm" ref="graph1"/>
-        <Settings class="col-sm" @inputs="sendToGraph" @selected="getData"></Settings>
-        </div>
-        <div class="row">
-            <Gauges ref="gauges"></Gauges>
+        <Settings ref="settings" class="col-sm" @inputs="sendToGraph" @selected="getData"></Settings>
         </div>
             <Gauge class = "col-sm" ref="gauge">
             </Gauge>
@@ -17,11 +14,10 @@
     import axios from "axios";
     import Settings from "./Settings";
     import Gauge from "./Gauge";
-    import Gauges from "@/components/Gauges";
 
     export default {
         name: "GraphMenu",
-        components: {Gauges, Settings, Graph, Gauge},
+        components: {Settings, Graph, Gauge},
         data(){
             return {
                 sensor: [],
@@ -92,7 +88,7 @@
                 console.log("length: " , data.length, " Data: ", this.response)
                 this.$refs.graph1.fillData(data);
                 this.$refs.gauge.updateTable(data);
-                this.$refs.gauges.changeValues(data);
+                this.$refs.settings.sendGauges(data);
             }
         },
     }
