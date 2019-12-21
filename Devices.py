@@ -5,6 +5,7 @@ deviceData_fields = {
     'device_id': fields.String
 }
 
+
 class Devices(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
@@ -29,8 +30,8 @@ class Devices(Resource):
                 deviceData.append(dict(zip(columns, row)))
 
             return {
-                'message': 'Succes', 'Data': marshal(deviceData, deviceData_fields)
-            }, 201
+                       'message': 'Succes', 'Data': marshal(deviceData, deviceData_fields)
+                   }, 201
 
         except Exception as e:
-           return {'error': str(e)}
+            return {'error': str(e)}

@@ -3,8 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="c611ef36-5bb0-496d-bd23-c29621ac4ef9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AzureSQLDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/AzureSQLDatabase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapturedDataDevices.py" beforeDir="false" afterPath="$PROJECT_DIR$/CapturedDataDevices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Devices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Devices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/components/DropDownMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/DropDownMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Gauge.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Gauge.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Gauges.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Gauges.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Graph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Graph.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__vue__/src/components/GraphMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/GraphMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/components/LineChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/LineChart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__vue__/src/components/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Settings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__vue__/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mqtt-client.py" beforeDir="false" afterPath="$PROJECT_DIR$/mqtt-client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,26 +191,26 @@
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1576148274699" />
     <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576763221357" />
-    <state width="1899" height="280" key="GridCell.Tab.0.bottom" timestamp="1576876526796">
+    <state width="1899" height="280" key="GridCell.Tab.0.bottom" timestamp="1576944623036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576250752142" />
-    <state width="1899" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576876526796" />
-    <state width="1899" height="280" key="GridCell.Tab.0.center" timestamp="1576876526796">
+    <state width="1899" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576944623036" />
+    <state width="1899" height="280" key="GridCell.Tab.0.center" timestamp="1576944623036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="194" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576250752142" />
-    <state width="1899" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576876526796" />
-    <state width="1899" height="280" key="GridCell.Tab.0.left" timestamp="1576876526795">
+    <state width="1899" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576944623036" />
+    <state width="1899" height="280" key="GridCell.Tab.0.left" timestamp="1576944623036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="194" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576250752142" />
-    <state width="1899" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576876526795" />
-    <state width="1899" height="280" key="GridCell.Tab.0.right" timestamp="1576876526796">
+    <state width="1899" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576944623036" />
+    <state width="1899" height="280" key="GridCell.Tab.0.right" timestamp="1576944623036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1515" height="194" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576250752142" />
-    <state width="1899" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576876526796" />
+    <state width="1899" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576944623036" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1575552903851">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -220,11 +232,11 @@
     </state>
     <state x="369" y="109" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1575553648287" />
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576763227107" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576862290209">
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576943692029">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="525" y="272" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576148266944" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576862290209" />
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576943692029" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

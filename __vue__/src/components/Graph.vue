@@ -14,9 +14,9 @@
         components: {
             LineChart
         },
-        data(){
-            return{
-                settings:[],
+        data() {
+            return {
+                settings: [],
                 datacollection: null,
                 localSettings: null,
                 localData: null
@@ -25,11 +25,11 @@
 
 
         methods: {
-            fillData (data) {
+            fillData(data) {
                 var jonx;
                 data = new Promise((resolve) => {
                     var return_data = [];
-                    for(var key in data.data.Data){
+                    for (var key in data.data.Data) {
                         return_data.push(data.data.Data[key]);
                     }
                     jonx = return_data;
@@ -43,41 +43,39 @@
                     "date to": null
                 };
                 this.settings.map((element) => {
-                    if(element.value && element.text != "live" && element.text != "date from" && element.text != "date to"){
+                    if (element.value && element.text != "live" && element.text != "date from" && element.text != "date to") {
                         this.localSettings.push(element.text)
-                    }
-                    else if(element.text == "date from" || element.text == "date to"){
+                    } else if (element.text == "date from" || element.text == "date to") {
                         this.localData[element.text] = element.value;
                     }
                 });
 
                 //sorts data
-                let methodData = jonx.sort(function(a,b){
+                let methodData = jonx.sort(function (a, b) {
                     return new Date(a.timestamp) - new Date(b.timestamp);
                 });
 
                 //removes datetime restriction data
                 let removers = [];
-                for(let i = 0; i < jonx.length; i++){
-                    if((this.localData['date from'] != null && new Date(jonx[i].timestamp) < new Date(this.localData['date from']))
-                        || (this.localData['date to'] != null && new Date(jonx[i].timestamp) > new Date(this.localData['date to']))){
+                for (let i = 0; i < jonx.length; i++) {
+                    if ((this.localData['date from'] != null && new Date(jonx[i].timestamp) < new Date(this.localData['date from']))
+                        || (this.localData['date to'] != null && new Date(jonx[i].timestamp) > new Date(this.localData['date to']))) {
                         removers.push(i);
                     }
                 }
-                
+
                 for (let i = removers.length - 1; i >= 0; i--) {
                     methodData.splice(removers[i], 1);
                 }
 
                 //empty datacollection to be refilled
                 this.datacollection = {
-                    labels:[],
-                    datasets: [
-                    ]
+                    labels: [],
+                    datasets: []
                 }
 
                 //puts data in data collection and fills it with filled templates
-                if(this.localSettings.length != 0) {
+                if (this.localSettings.length != 0) {
                     this.localSettings.map((element) => {
                         let template = {
                             label: "",
@@ -86,7 +84,7 @@
                         };
                         template.label = element;
                         methodData.map((inner) => {
-                            if(!start){
+                            if (!start) {
                                 this.datacollection.labels.push(inner.timestamp);
                             }
                             template.data.push(inner[element]);

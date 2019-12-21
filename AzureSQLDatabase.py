@@ -1,6 +1,7 @@
 import pyodbc
 import config
 
+
 class AzureSQLDatabase(object):
     connection = None
     cursor = None

@@ -1,33 +1,38 @@
 <template>
     <div>
         <b-col>
-        <b-form-select @change="sendSelected(selected)" v-model="selected" :options="options" size="sm" class="mt-3"></b-form-select>
+            <b-form-select @change="sendSelected(selected)" v-model="selected" :options="options" size="sm"
+                           class="mt-3"></b-form-select>
         </b-col>
     </div>
 </template>
 
 <script>
     import axios from 'axios';
+
     export default {
         name: "DropDownMenu",
-        data(){
-            return{
+        data() {
+            return {
                 options: [
                     {value: null, text: 'select sensor'}
                 ],
                 selected: null,
             }
         },
-        methods:{
-            sendSelected: function(selected){
+        methods: {
+            sendSelected: function (selected) {
                 this.$emit('selected', selected)
             },
 
-            getOptions: function(){
+            getOptions: function () {
                 axios.get(`http://127.0.0.1:5000/Api/V1/Devices`)
                     .then(response => {
                         // JSON responses are automatically parsed.
-                        response.data.Data.forEach(deviceName => this.options.push({value : deviceName['device_id'], text: deviceName['device_id']}));
+                        response.data.Data.forEach(deviceName => this.options.push({
+                            value: deviceName['device_id'],
+                            text: deviceName['device_id']
+                        }));
                     })
                     .catch(e => {
                         this.errors.push(e)
@@ -35,7 +40,7 @@
             }
         },
 
-        beforeMount(){
+        beforeMount() {
             this.getOptions();
         }
     }

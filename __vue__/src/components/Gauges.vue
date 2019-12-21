@@ -10,7 +10,7 @@
                         :separator-step="5"
                         :min="0"
                         :max="100"
-                        :gauge-color="[{ offset: 0, color: '#347AB0'}, { offset: 100, color: '#8CDFAD'}]"
+                        :gauge-color="[{ offset: 0, color: '#f54242'}, { offset: 100, color: '#f87979'}]"
                         :scale-interval="0.1"
                 />
                 <h1 class="text-center"><small>{{humidity}}</small></h1>
@@ -24,7 +24,7 @@
                         :separator-step="5"
                         :min="0"
                         :max="100"
-                        :gauge-color="[{ offset: 0, color: '#347AB0'}, { offset: 100, color: '#8CDFAD'}]"
+                        :gauge-color="[{ offset: 0, color: '#f54242'}, { offset: 100, color: '#f87979'}]"
                         :scale-interval="0.1"
                 />
                 <h1 class="text-center"><small>{{temperature}}</small></h1>
@@ -38,7 +38,7 @@
                         :separator-step="5"
                         :min="0"
                         :max="100"
-                        :gauge-color="[{ offset: 0, color: '#347AB0'}, { offset: 100, color: '#8CDFAD'}]"
+                        :gauge-color="[{ offset: 0, color: '#f54242'}, { offset: 100, color: '#f87979'}]"
                         :scale-interval="0.1"
                 />
                 <h1 class="text-center"><small>{{pressure}}</small></h1>
@@ -55,9 +55,9 @@
         name: "Gauges",
         data() {
             return {
-                pressure: 10,
-                humidity: 10,
-                temperature: 10
+                pressure: 0,
+                humidity: 0,
+                temperature: 0
             }
         },
         components: {
