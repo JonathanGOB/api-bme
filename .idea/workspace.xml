@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c611ef36-5bb0-496d-bd23-c29621ac4ef9" name="Default Changelist" comment="">
+    <list default="true" id="183fe7bd-056a-4ef8-8962-b3099d2cfd13" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AzureSQLDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/AzureSQLDatabase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CapturedDataDevices.py" beforeDir="false" afterPath="$PROJECT_DIR$/CapturedDataDevices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Devices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Devices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/DropDownMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/DropDownMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Gauge.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Gauge.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Gauges.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Gauges.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Graph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Graph.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/GraphMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/GraphMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/LineChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/LineChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/components/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/components/Settings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__vue__/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/__vue__/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mqtt-client.py" beforeDir="false" afterPath="$PROJECT_DIR$/mqtt-client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,24 +11,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Flask Main" />
         <option value="Python Script" />
       </list>
     </option>
@@ -48,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1TydEAb2X0yQPCw1sS1ERjbsWXv" />
+  <component name="ProjectId" id="1VOBRLgF8GP8lc2qzRlsdsxhMR3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -57,42 +30,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DSP/Examples" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\IoT\apiapi" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Python.app">
-    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="apiapi" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="mqtt-client" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="apiapi" />
+      <module name="api-bme" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -103,7 +45,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mqtt-client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -113,24 +54,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="apiapi" type="Python.FlaskServer">
-      <module name="apiapi" />
-      <option name="target" value="$PROJECT_DIR$/app.py" />
-      <option name="targetType" value="PATH" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.app" />
         <item itemvalue="Python.mqtt-client" />
       </list>
     </recent_temporary>
@@ -152,101 +77,38 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c611ef36-5bb0-496d-bd23-c29621ac4ef9" name="Default Changelist" comment="" />
-      <created>1573043214630</created>
+      <changelist id="183fe7bd-056a-4ef8-8962-b3099d2cfd13" name="Default Changelist" comment="" />
+      <created>1577114254365</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573043214630</updated>
-      <workItem from="1573043248875" duration="3817000" />
-      <workItem from="1573202825131" duration="6364000" />
+      <updated>1577114254365</updated>
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10181000" />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="WindowStateProjectService">
-    <state x="679" y="134" key="#app" timestamp="1575484465677">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="679" y="134" key="#app/0.0.1920.1040@0.0.1920.1040" timestamp="1575484465677" />
-    <state x="686" y="211" key="FileChooserDialogImpl" timestamp="1576763221357">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1576148274699" />
-    <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576763221357" />
-    <state width="1899" height="280" key="GridCell.Tab.0.bottom" timestamp="1576944623036">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1515" height="194" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576250752142" />
-    <state width="1899" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576944623036" />
-    <state width="1899" height="280" key="GridCell.Tab.0.center" timestamp="1576944623036">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1515" height="194" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576250752142" />
-    <state width="1899" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576944623036" />
-    <state width="1899" height="280" key="GridCell.Tab.0.left" timestamp="1576944623036">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1515" height="194" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576250752142" />
-    <state width="1899" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576944623036" />
-    <state width="1899" height="280" key="GridCell.Tab.0.right" timestamp="1576944623036">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1515" height="194" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576250752142" />
-    <state width="1899" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576944623036" />
-    <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1575552903851">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1577114613939">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1575552903851" />
-    <state width="1515" height="261" key="GridCell.Tab.1.center" timestamp="1575552903851">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577114613939" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1578309907677">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1575552903851" />
-    <state width="1515" height="261" key="GridCell.Tab.1.left" timestamp="1575552903851">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578309907677" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1578309907677">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1575552903851" />
-    <state width="1515" height="261" key="GridCell.Tab.1.right" timestamp="1575552903851">
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578309907677" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1578309907677">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1575552903851" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1576763227107">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578309907677" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1578309907677">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="369" y="109" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1575553648287" />
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576763227107" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576943692029">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578309907677" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1578307636772">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="525" y="272" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576148266944" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576943692029" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578307636772" />
   </component>
 </project>
